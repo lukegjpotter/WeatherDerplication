@@ -3,5 +3,6 @@
 
     <string name="app_name">Weather Derplication</string>
     <string name="title_city_detail">City Detail</string>
+    <string name="api_key">A2461802603</string>
 
 </resources>
