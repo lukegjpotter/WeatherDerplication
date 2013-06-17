@@ -1,0 +1,20 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1371506456000 505 d6e6c2e3bee79f27b50abf4c7e0068ac151e2258 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/R$string.class
+1371506456000 389 4de07a49b8466a888dcb481bbdbba053958ab156 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/BuildConfig.class
+1371506456000 1554 567293e9134b76a6d36ebb67e5a9ece0570e9063 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/dummy/DummyContent.class
+1371506456000 473 a035d3dad5b9bc39bcff8f948dec0a10fc9d3765 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/R$drawable.class
+1371506456000 1951 61470868e0ec66a85f1e0af77b426cbabc27dccf /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/CityDetailFragment.class
+1371506456000 406 d2ca6db99c3986c519168b3f81f9b35d67b06717 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/R$attr.class
+1371506375000 484258 bd6479f5dd592790607e0504e66e0f31c2b4d308 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/libs/android-support-v4.jar
+1371506456000 3405 dd28abfc425a0364ff97fcf501f293d776e2650e /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/CityListFragment.class
+1371506456000 2194 d599a21e9be5de1616f744dc5ea0ac189758cefc /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/CityDetailActivity.class
+1371506456000 759 dc407b6bf81dc670d824679a89aecbab1ad7a6c2 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/R.class
+1371506456000 497 3e69de4d1bc3c933f3b8645521f092d6d59a932a /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/R$style.class
+1371506456000 2340 7e086cf28d888b71ea424349e48ed5bc3af61b61 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/CityListActivity.class
+1371506456000 607 4b1dc2d0b7e6297935ce9830b90f8e7cbcdfda34 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/R$layout.class
+1371506456000 319 1fc0ade76d99fb7ea31735ba89a220517cbe7b40 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/CityListFragment$Callbacks.class
+1371506456000 734 49c3ad3c26df7114e9e4a06e1fe2ecb2f5849da0 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/dummy/DummyContent$DummyItem.class
+1371506456000 713 e891cee7a4b580e35ba547004c1621712498a869 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/CityListFragment$1.class
+1371506456000 533 acd80a386ba7e0c8b93d5b86608e006e3ff202d1 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/classes/release/com/github/lukegjpotter/app/derpyweather/R$id.class

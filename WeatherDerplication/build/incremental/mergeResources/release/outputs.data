@@ -1,0 +1,15 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1371506456000 474 31f22ebdbb5064ba86f19ff64eda7d7b3405d123 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/layout/activity_city_list.xml
+1371506456000 387 a38b241acf98052eef08669ea26511af3fb904c2 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/layout/fragment_city_detail.xml
+1371506456000 635 e24643799de2ecd941d584d1543e11c23386b657 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/values/values.xml
+1371506456000 1390 e2b565e2f9e6a7ac789affd2045d996ce4361805 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/layout/activity_city_twopane.xml
+1371506456000 325 de2620a9d18d099bd6de040d42face8009eb57ba /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/layout/activity_city_detail.xml
+1371506456000 3895 0fc5a43605c0e2166a70744f3ca7262581527491 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/drawable-mdpi/ic_launcher.png
+1371506456000 8962 38138cffd771e07238e3dd1dcbf5733859a29af9 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/drawable-xhdpi/ic_launcher.png
+1371506456000 14560 a248b922c98bfd88fb8abd686d65a01670651d9c /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/drawable-xxhdpi/ic_launcher.png
+1371506456000 153 20f9b6d4454e44c8fb118b74edd7f7473ac6518d /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/values-sw600dp/values.xml
+1371506456000 6615 d151a1a181980d9c4d826c7ef70898f47c227272 /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/drawable-hdpi/ic_launcher.png
+1371506456000 153 20f9b6d4454e44c8fb118b74edd7f7473ac6518d /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/values-large/values.xml
+1371506456000 203 19aedb7cdc3386344e36087b035a0a6b2b91d4cd /Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/build/res/all/release/values-v11/values.xml
