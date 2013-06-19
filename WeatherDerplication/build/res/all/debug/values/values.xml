@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="api_key">A2461802603</string>
     <string name="app_name">Weather Derplication</string>
     <string name="title_city_detail">City Detail</string>
 

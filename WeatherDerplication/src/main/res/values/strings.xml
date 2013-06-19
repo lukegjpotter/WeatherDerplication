@@ -4,5 +4,7 @@
     <string name="app_name">Weather Derplication</string>
     <string name="title_city_detail">City Detail</string>
     <string name="api_key">A2461802603</string>
+    <string name="title_activity_weather_viewer">Weather Viewer</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
