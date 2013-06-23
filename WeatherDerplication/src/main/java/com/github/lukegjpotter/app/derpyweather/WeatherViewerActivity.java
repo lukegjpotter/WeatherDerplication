@@ -17,7 +17,9 @@ package com.github.lukegjpotter.app.derpyweather;
  *     This class also has the ActionBar code.
  */
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
@@ -166,6 +168,36 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
             String cityName = weatherSharedPreferences.getString(PREFERRED_CITY_NAME_KEY, getResources().getString(R.string.default_zipcode));
             selectForecast(cityName);
         }
+    }
+
+    /**
+     * Set the preferred city.
+     *
+     * @param cityName
+     */
+    public void setPreferred(String cityName) {
+
+        String cityZipcode = favouriteCitiesMap.get(cityName);
+
+        Editor preferredCityEditor = weatherSharedPreferences.edit();
+        preferredCityEditor.putString(PREFERRED_CITY_NAME_KEY, cityName);
+        preferredCityEditor.putString(PREFERRED_CITY_ZIPCODE_KEY, cityZipcode);
+        preferredCityEditor.apply();
+
+        lastSelectedCity = null;
+        loadSelectedForecast();
+
+        // Update the widget to show the new preferred city's weather.
+        final Intent updateWidgetIntent = new Intent(WIDGET_UPDATE_BROADCAST_ACTION);
+
+        weatherHandler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                sendBroadcast(updateWidgetIntent);
+            }
+        }, BROADCAST_DELAY);
     }
 
     /**
