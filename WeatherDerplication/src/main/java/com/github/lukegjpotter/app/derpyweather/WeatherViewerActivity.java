@@ -124,6 +124,36 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     }
 
     /**
+     * Listens for changes to the CityListFragment.
+     */
+    private CitiesListChangeListener citiesListChangeListener = new CitiesListChangeListener() {
+
+        /**
+         * Called when the selected city is changed.
+         *
+         * @param cityName
+         */
+        @Override
+        public void onSelectedCityChanged(String cityName) {
+
+            // Show the given city's forecast.
+            selectForecast(cityName);
+        }
+
+        /**
+         * Called when the preferred city is changed.
+         *
+         * @param cityName
+         */
+        @Override
+        public void onPreferredCityChanged(String cityName) {
+
+            // Update the preferences with the new preferred city.
+            setPreferred(cityName);
+        }
+    };
+
+    /**
      * The method that creates the options menu in the action bar.
      *
      * @param menu
