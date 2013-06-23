@@ -23,6 +23,7 @@ import android.app.Activity;
 import android.os.Handler;
 import android.view.Menu;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class WeatherViewerActivity extends Activity implements DialogFinishedListener {
@@ -41,17 +42,43 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     private SharedPreferences weatherSharedPreferences;
 
     // Stores city names and the corresponding zipcodes.
-    private Map <String, String> favouriteCitiesMap;
+    private Map<String, String> favouriteCitiesMap;
     private CityListFragment cityListFragment;
-    private Handler handler;
+    private Handler weatherHandler;
 
+    /**
+     * This method sets up various variables.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_viewer);
+
+        // Get the CityListFragment
+        cityListFragment = (CityListFragment) getFragmentManager().findFragmentById(R.id.cities);
+
+        // Set the CitiesListChangeListener
+        cityListFragment.setCitiesListChangedListener(citiesListChangeListener);
+
+        // Create HashMap storing city names and corresponding ZIP codes.
+        favouriteCitiesMap = new HashMap<String, String>();
+
+        weatherHandler = new Handler();
+
+        weatherSharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+
+        setupTabs();
     }
 
-
+    /**
+     * The method that creates the options menu in the action bar.
+     *
+     * @param menu
+     * @return true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
