@@ -236,6 +236,24 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     }
 
     /**
+     * Add a city to the CityListFragment ListFragment and
+     * record it in the SharedPreferences.
+     *
+     * @param city
+     * @param zipCode
+     * @param select
+     */
+    public void addCity(String city, String zipCode, boolean select) {
+
+        favouriteCitiesMap.put(city, zipCode);
+        cityListFragment.addCity(city, select);
+
+        Editor prefsEditor = weatherSharedPreferences.edit();
+        prefsEditor.putString(city, zipCode);
+        prefsEditor.apply();
+    }
+
+    /**
      * The method that creates the options menu in the action bar.
      *
      * @param menu
