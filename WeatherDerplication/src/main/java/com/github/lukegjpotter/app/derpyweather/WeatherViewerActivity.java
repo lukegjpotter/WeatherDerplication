@@ -74,6 +74,56 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     }
 
     /**
+     * Save this Activity's state.
+     *
+     * @param outState
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        outState.putInt(CURRENT_TAB_KEY, currentTab);
+        outState.putString(LAST_SELECTED_KEY, lastSelectedCity);
+
+        super.onSaveInstanceState(outState);
+    }
+
+    /**
+     * Restores this Activity's saved state.
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        super.onRestoreInstanceState(savedInstanceState);
+
+        currentTab = savedInstanceState.getInt(CURRENT_TAB_KEY);
+        lastSelectedCity = savedInstanceState.getString(LAST_SELECTED_KEY);
+    }
+
+    /**
+     * Called when this Activity resumes.
+     */
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+        if (favouriteCitiesMap.isEmpty()) {
+
+            loadSavedCities();
+        }
+
+        if (favouriteCitiesMap.isEmpty()) {
+
+            addSampleCities();
+        }
+
+        getActionBar().selectTab(getActionBar().getTabAt(currentTab));
+        loadSelectedForecast();
+    }
+
+    /**
      * The method that creates the options menu in the action bar.
      *
      * @param menu
