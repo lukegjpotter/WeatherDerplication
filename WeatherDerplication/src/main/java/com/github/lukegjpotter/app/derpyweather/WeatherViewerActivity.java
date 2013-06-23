@@ -217,6 +217,25 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     }
 
     /**
+     * Add the sample cities.
+     */
+    private void addSampleCities() {
+
+        // Load the array of city names from resources.
+        String[] sampleCityNamesArray = getResources().getStringArray(R.array.default_city_names);
+
+        // Load the array of ZIP codes from resources.
+        String[] sampleZipCodesArray = getResources().getStringArray(R.array.default_city_zipcodes);
+
+        for (int i = 0; i < sampleCityNamesArray.length; i++) {
+
+            if (i == 0) setPreferred(sampleCityNamesArray[i]);
+
+            addCity(sampleCityNamesArray[i], sampleZipCodesArray[i], false);
+        }
+    }
+
+    /**
      * The method that creates the options menu in the action bar.
      *
      * @param menu
