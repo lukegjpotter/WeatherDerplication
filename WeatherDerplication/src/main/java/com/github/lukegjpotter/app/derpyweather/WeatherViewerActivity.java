@@ -154,6 +154,21 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     };
 
     /**
+     * Load the previously selected forecast.
+     */
+    private void loadSelectedForecast() {
+
+        if (lastSelectedCity != null) {
+
+            selectForecast(lastSelectedCity);
+        } else {
+
+            String cityName = weatherSharedPreferences.getString(PREFERRED_CITY_NAME_KEY, getResources().getString(R.string.default_zipcode));
+            selectForecast(cityName);
+        }
+    }
+
+    /**
      * The method that creates the options menu in the action bar.
      *
      * @param menu
