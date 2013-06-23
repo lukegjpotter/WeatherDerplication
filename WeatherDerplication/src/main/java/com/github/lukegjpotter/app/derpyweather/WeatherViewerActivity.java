@@ -201,6 +201,22 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     }
 
     /**
+     * Reads the previously saved cities from SharedPreferences.
+     */
+    private void loadSavedCities() {
+
+        Map<String, ?> citiesMap = weatherSharedPreferences.getAll();
+
+        for (String city : citiesMap) {
+
+            if (!(city.equals(PREFERRED_CITY_NAME_KEY) || city.equals(PREFERRED_CITY_ZIPCODE_KEY))) {
+
+                addCity(city, (String) citiesMap.get(city), false);
+            }
+        }
+    }
+
+    /**
      * The method that creates the options menu in the action bar.
      *
      * @param menu
