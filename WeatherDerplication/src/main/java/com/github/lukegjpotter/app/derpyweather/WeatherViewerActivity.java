@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -336,9 +337,31 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+        super.onCreateOptionsMenu(menu);
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.weather_viewer, menu);
         return true;
     }
-    
+
+
+    /**
+     * When one of the items was clicked.
+     *
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        // If the item selected was the "Add City" item.
+        if (item.getItemId() == R.id.add_city_item) {
+
+            showAddCityDialog();
+            return true;
+        }
+
+        return false;
+    }
 }
