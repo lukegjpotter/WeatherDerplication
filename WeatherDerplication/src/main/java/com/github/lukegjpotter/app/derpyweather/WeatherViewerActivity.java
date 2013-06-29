@@ -317,6 +317,16 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
         }
     }
 
+    /**
+     * Select the tab at the given position.
+     *
+     * @param position
+     */
+    private void selectTab(int position) {
+
+        currentTab = position; // Save the position tab.
+        loadSelectedForecast();
+    }
 
     /**
      * The method that creates the options menu in the action bar.
