@@ -17,6 +17,7 @@ package com.github.lukegjpotter.app.derpyweather;
  *     This class also has the ActionBar code.
  */
 
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -345,7 +346,6 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
         return true;
     }
 
-
     /**
      * When one of the items was clicked.
      *
@@ -363,5 +363,36 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
         }
 
         return false;
+    }
+
+    /**
+     * Display FragmentDialog allowing the user to add a new city.
+     */
+    private void showAddCityDialog() {
+
+        // Create a new AddCityDialogFragment.
+        AddCityDialogFragment newAddCityDialogFragment = new AddCityDialogFragment();
+
+        // Get instance of the FragmentManager.
+        FragmentManager fragmentManager = getFragmentManager();
+
+        // Begin a FragmentTransaction.
+        FragmentTransaction addCityFragmentTransaction = fragmentManager.beginTransaction();
+
+        // Shew the DialogFragment.
+        newAddCityDialogFragment.show(addCityFragmentTransaction, "");
+    }
+
+    /**
+     * Called when the FragmentDialog is dismissed.
+     *
+     * @param zipCode
+     * @param preferred
+     */
+    @Override
+    public void onDialogFinished(String zipCode, boolean preferred) {
+
+        // Convert ZIP code to city.
+        getCityNameZipcode(zipCode, preferred);
     }
 }
