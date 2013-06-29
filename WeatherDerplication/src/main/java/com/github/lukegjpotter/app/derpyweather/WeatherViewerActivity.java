@@ -298,6 +298,27 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     }
 
     /**
+     * Is this the proper ForecastFragment for the currently selected tab.
+     *
+     * @param forecastFragment
+     * @return
+     */
+    private boolean correctTab(ForecastFragment forecastFragment) {
+
+        // If the "Current Conditions" tab is selected.
+        if (currentTab == CURRENT_CONDITIONS_TAB) {
+
+            // Return true if the given ForecastFragment is a Single Day forecast.
+            return (forecastFragment instanceof SingleDayForecastFragment);
+        } else {
+
+            // Return false if the given ForecastFragment is a Five Day Forecast.
+            return (forecastFragment instanceof FiveDayForecastFragment);
+        }
+    }
+
+
+    /**
      * The method that creates the options menu in the action bar.
      *
      * @param menu
