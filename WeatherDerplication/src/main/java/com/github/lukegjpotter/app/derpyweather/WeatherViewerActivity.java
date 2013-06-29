@@ -17,6 +17,7 @@ package com.github.lukegjpotter.app.derpyweather;
  *     This class also has the ActionBar code.
  */
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -251,6 +252,49 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
         Editor prefsEditor = weatherSharedPreferences.edit();
         prefsEditor.putString(city, zipCode);
         prefsEditor.apply();
+    }
+
+    /**
+     * Display forecast information for the given city.
+     *
+     * @param city
+     */
+    public void selectForecast(String city) {
+
+        lastSelectedCity = city; // Save the city name.
+        String zipCode = favouriteCitiesMap.get(city);
+
+        if (zipCode == null) {
+            return;
+        }
+
+        ForecastFragment currentForecastFragment = (ForecastFragment) getFragmentManager().findFragmentById(R.id.forecast_replacer);
+
+        if (currentForecastFragment == null || !(currentForecastFragment.getZipcode().equals(zipCode) && correctTab(currentForecastFragment))) {
+
+            // If the selected tab is "Current Conditions".
+            if (currentTab == CURRENT_CONDITIONS_TAB) {
+
+                // Create a new ForecastFragment using the given ZIP code.
+                currentForecastFragment = SingleDayForecastFragment.newInstance(zipCode);
+            } else {
+
+                // Create a new ForecastFragment using the given ZIP code.
+                currentForecastFragment = FiveDayForecastFragment.newInstance(zipCode);
+            }
+
+            // Create a new FragmentTransaction.
+            FragmentTransaction forecastFragmentTransaction = getFragmentManager().beginTransaction();
+
+            // Set transition animation to fade.
+            forecastFragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+
+            // Replace the fragment (or View) at the given ID with our new Fragment.
+            forecastFragmentTransaction.replace(R.id.forecast_replacer, currentForecastFragment);
+
+            // Begin the transaction.
+            forecastFragmentTransaction.commit();
+        }
     }
 
     /**
