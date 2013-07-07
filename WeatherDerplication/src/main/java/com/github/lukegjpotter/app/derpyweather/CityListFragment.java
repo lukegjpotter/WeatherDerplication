@@ -13,6 +13,7 @@ package com.github.lukegjpotter.app.derpyweather;
 
 import android.app.Activity;
 import android.app.ListFragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -59,6 +60,38 @@ public class CityListFragment extends ListFragment {
          * @param city
          */
         public void onPreferredCityChanged(String city);
+    }
+
+    /**
+     * Called when the parent activity is created.
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+
+        super.onActivityCreated(savedInstanceState);
+
+        // The given Bundle has state information.
+        if (savedInstanceState != null) {
+
+            // Get the last selected city from the Bundle.
+            currentCityIndex = savedInstanceState.getInt(CURRENT_CITY_KEY);
+        }
+
+        // Create ArrayList to save city names.
+        citiesArrayList = new ArrayList<String>();
+
+        // Set the Fragment's ListView adapter.
+        setListAdapter(new CitiesArrayAdapter<String>(getActivity(), R.layout.city_list_item, citiesArrayList));
+
+        ListView thisListView = getListView(); // Get the Fragment's ListView.
+        citiesArrayAdapter = (ArrayAdapter<String>) getListAdapter();
+
+        // Allow only one city to be selected at a time.
+        thisListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        thisListView.setBackgroundColor(Color.WHITE);
+        thisListView.setOnItemLongClickListener(citiesOnItemLongClickListener);
     }
 
     /**
