@@ -1,13 +1,26 @@
 package com.github.lukegjpotter.app.derpyweather;
 
+/**
+ * CityListFragment.java
+ *
+ * @author Luke GJ Potter - lukegjpotter
+ * @date 07/Jul/13
+ * @version 1.0
+ *
+ * Description:
+ *     Fragment displaying list of favourite cities.
+ */
+
 import android.app.Activity;
+import android.app.ListFragment;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.github.lukegjpotter.app.derpyweather.dummy.DummyContent;
+
+import java.util.ArrayList;
 
 /**
  * A list fragment representing a list of Cities. This fragment
@@ -19,6 +32,34 @@ import com.github.lukegjpotter.app.derpyweather.dummy.DummyContent;
  * interface.
  */
 public class CityListFragment extends ListFragment {
+
+    // Key used to save list selection in a Bundle.
+    private static final String CURRENT_CITY_KEY = "current_city";
+
+    private int                   currentCityIndex;      // The currently selected list position.
+    public  ArrayList<String>     citiesArrayList;       // List of city names.
+    private CitiesChangedListener citiesChangedListener;
+    private ArrayAdapter<String>  citiesArrayAdapter;
+
+    /**
+     * An interface describing listener for changes to selected city and preferred city.
+     */
+    public interface CitiesChangedListener {
+
+        /**
+         * The selected city is changed.
+         *
+         * @param city
+         */
+        public void onSelectedCityChanged(String city);
+
+        /**
+         * The preferred city is changed.
+         *
+         * @param city
+         */
+        public void onPreferredCityChanged(String city);
+    }
 
     /**
      * The serialization (saved instance state) Bundle key representing the
