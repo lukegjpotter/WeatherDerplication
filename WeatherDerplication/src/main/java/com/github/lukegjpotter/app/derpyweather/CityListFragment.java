@@ -39,7 +39,7 @@ public class CityListFragment extends ListFragment {
 
     private int                   currentCityIndex;      // The currently selected list position.
     public  ArrayList<String>     citiesArrayList;       // List of city names.
-    private CitiesChangedListener citiesChangedListener;
+    private CitiesListChangedListener citiesListChangedListener;
     private ArrayAdapter<String>  citiesArrayAdapter;
 
     /**
@@ -92,6 +92,11 @@ public class CityListFragment extends ListFragment {
         thisListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         thisListView.setBackgroundColor(Color.WHITE);
         thisListView.setOnItemLongClickListener(citiesOnItemLongClickListener);
+    }
+
+    public void setCitiesListChangedListener(CitiesListChangedListener listener) {
+
+        citiesListChangedListener = listener;
     }
 
     /**
