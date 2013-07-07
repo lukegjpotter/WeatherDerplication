@@ -25,8 +25,10 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -393,6 +395,33 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
     public void onDialogFinished(String zipCode, boolean preferred) {
 
         // Convert ZIP code to city.
-        getCityNameZipcode(zipCode, preferred);
+        getCityNameFromZipcode(zipCode, preferred);
+    }
+
+    /**
+     * Read city name from ZIP code.
+     *
+     * @param zipCode
+     * @param preferred
+     */
+    private void getCityNameFromZipcode(String zipCode, boolean preferred) {
+
+        // If this ZIP code is already added.
+        if (favouriteCitiesMap.containsValue(zipCode)) {
+
+            // Create a Toast displaying error information.
+            Toast errorToast = Toast.makeText(
+                    WeatherViewerActivity.this,
+                    WeatherViewerActivity.this.getResources().getString(R.string.duplicate_zipcode_error),
+                    Toast.LENGTH_LONG);
+
+            errorToast.setGravity(Gravity.CENTER, 0, 0);
+            errorToast.show();
+
+        } else {
+
+            // Load the location information in a background thread.
+            new ReadLocationTask(zipCode, this, new CityNameLocationLoadedListener(zipCode, preferred)).execute();
+        }
     }
 }
