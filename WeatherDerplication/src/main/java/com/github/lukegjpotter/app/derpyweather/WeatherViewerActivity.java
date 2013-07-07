@@ -424,4 +424,44 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
             new ReadLocationTask(zipCode, this, new CityNameLocationLoadedListener(zipCode, preferred)).execute();
         }
     }
+
+    /**
+     * Listens for city information loaded in background task.
+     */
+    private class CityNameLocationLoadedListener implements LocationLoadedListener {
+
+        private String  zipCode;
+        private boolean preferred;
+
+        public CityNameLocationLoadedListener(String zipCodeString, boolean isPreferred) {
+
+            zipCode = zipCodeString;
+            preferred = isPreferred;
+        }
+
+        @Override
+        public void onLocationLoaded(String city, String state, String country) {
+
+            // If a city was found to match the given ZIP code.
+            if (city != null) {
+
+                addCity(city, state, !preferred);
+
+                if (preferred) {
+
+                    setPreferred(city);
+                }
+            } else {
+
+                // Display text saying that the location could not be found.
+                Toast zipCodeToast = Toast.makeText(
+                        WeatherViewerActivity.this,
+                        WeatherViewerActivity.this.getResources().getString(R.string.invalid_zipcode_error),
+                        Toast.LENGTH_LONG);
+
+                zipCodeToast.setGravity(Gravity.CENTER, 0, 0);
+                zipCodeToast.show();
+            }
+        }
+    }
 }
