@@ -17,6 +17,7 @@ package com.github.lukegjpotter.app.derpyweather;
  *     This class also has the ActionBar code.
  */
 
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -463,5 +464,36 @@ public class WeatherViewerActivity extends Activity implements DialogFinishedLis
                 zipCodeToast.show();
             }
         }
+    }
+
+    /**
+     * Set up the ActionBar's tabs
+     */
+    private void setupTabs() {
+
+        // Get the Action Bar
+        ActionBar weatherActionBar = getActionBar();
+
+        // Set Action Bar's navigation mode to use tabs.
+        weatherActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        // Create the "Current Conditions" tab.
+        ActionBar.Tab currentConditionsTab = weatherActionBar.newTab();
+
+        // Set the Tab's title.
+        currentConditionsTab.setText(getResources().getString(R.string.current_conditions));
+
+        // Set the Tab's Listener.
+        currentConditionsTab.setTabListener(weatherTabListener);
+        weatherActionBar.addTab(currentConditionsTab);
+
+        // Create the "Five Day Forecast" tab.
+        ActionBar.Tab fiveDayForecastTab = weatherActionBar.newTab();
+        fiveDayForecastTab.setText(getResources().getString(R.string.five_day_forecast));
+        fiveDayForecastTab.setTabListener(weatherTabListener);
+        weatherActionBar.addTab(fiveDayForecastTab);
+
+        // Select "Current Conditions" Tab by default.
+        currentTab = CURRENT_CONDITIONS_TAB;
     }
 }
