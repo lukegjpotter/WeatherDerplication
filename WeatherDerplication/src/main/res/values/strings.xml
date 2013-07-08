@@ -51,7 +51,7 @@
     <string name="add_city_button_text">Add City</string>
     <string name="add_city_checkbox_text">Set as preferred city</string>
     <string name="duplicate_zipcode_error">Duplicate ZIP code.</string>
-    <string name="update_preferred_action">com.dietel.weatherviewer.UPDATE_PREFERRED_CITY</string>
+    <string name="update_preferred_action">com.github.lukegjpotter.app.derpyweather.UPDATE_PREFERRED_CITY</string>
     <string name="city_dialog_message_prefix">Perform which action on&#160;</string>
     <string name="city_dialog_message_postfix">\?</string>
     <string name="click_widget_message">Click to launch WeatherViewer app.</string>
