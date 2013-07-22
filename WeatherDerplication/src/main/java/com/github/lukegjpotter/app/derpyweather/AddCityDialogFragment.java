@@ -3,7 +3,6 @@ package com.github.lukegjpotter.app.derpyweather;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -68,6 +67,22 @@ public class AddCityDialogFragment extends DialogFragment implements OnClickList
         okButton.setOnClickListener(this);
 
         return rootView;
+    }
+
+    /**
+     * Save this Dialog Fragment's state.
+     *
+     * @param outState
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        // Add the EditText's text to the outState Bundle.
+        outState.putCharSequence(
+                getResources().getString(R.string.add_city_dialog_bundle_key),
+                addCityEditText.getText().toString());
+
+        super.onSaveInstanceState(outState);
     }
 
     @Override
