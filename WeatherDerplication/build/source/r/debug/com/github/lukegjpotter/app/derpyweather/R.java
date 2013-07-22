@@ -9,12 +9,17 @@ package com.github.lukegjpotter.app.derpyweather;
 
 public final class R {
     public static final class array {
+        /**  From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values/arrays.xml 
+         */
         public static final int default_city_names=0x7f050000;
         public static final int default_city_zipcodes=0x7f050001;
     }
     public static final class attr {
     }
     public static final class dimen {
+        /**  From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values/dimens.xml 
+ From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values-sw720dp-land/dimens.xml 
+         */
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
         public static final int widget_text_size=0x7f060002;
@@ -62,6 +67,9 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_city_detail=0x7f030000;
+        /**  From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values-large/refs.xml 
+ From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values-sw600dp/refs.xml 
+         */
         public static final int activity_city_list=0x7f030001;
         public static final int activity_city_twopane=0x7f030002;
         public static final int activity_weather_viewer=0x7f030003;
@@ -78,6 +86,8 @@ public final class R {
         public static final int weather_viewer=0x7f090000;
     }
     public static final class string {
+        /**  From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values/strings.xml 
+         */
         public static final int action_settings=0x7f070000;
         public static final int add_city_button_text=0x7f070001;
         public static final int add_city_checkbox_text=0x7f070002;
@@ -138,11 +148,13 @@ public final class R {
         public static final int zipcode_prompt=0x7f070039;
     }
     public static final class style {
-        /** 
+        /**  From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values/styles.xml 
+
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
+ From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values-v11/styles.xml 
  API 11 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f080000;

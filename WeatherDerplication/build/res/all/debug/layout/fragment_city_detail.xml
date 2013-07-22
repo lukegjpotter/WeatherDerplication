@@ -7,3 +7,4 @@
     android:padding="16dp"
     android:textIsSelectable="true"
     tools:context=".CityDetailFragment" />
+<!-- From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/layout/fragment_city_detail.xml -->

@@ -309,6 +309,25 @@ public class CityListFragment extends ListFragment {
     };
 
     /**
+     * Add a new city to the list.
+     *
+     * @param cityName
+     * @param select
+     */
+    public void addCity(String cityName, boolean select) {
+
+        citiesArrayAdapter.add(cityName);
+        citiesArrayAdapter.sort(String.CASE_INSENSITIVE_ORDER);
+
+        if (select) {
+
+            // Inform the CitiesListChangedListener.
+            citiesListChangedListener.onSelectedCityChanged(cityName);
+        }
+    }
+
+
+    /**
      * The serialization (saved instance state) Bundle key representing the
      * activated item position. Only used on tablets.
      */
@@ -397,22 +416,34 @@ public class CityListFragment extends ListFragment {
         mCallbacks = sDummyCallbacks;
     }
 
+    /**
+     * Responds to a ListView item click.
+     *
+     * @param listView
+     * @param view
+     * @param position
+     * @param id
+     */
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
-        super.onListItemClick(listView, view, position, id);
 
-        // Notify the active callbacks interface (the activity, if the
-        // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        // Tell the Activity to update the ForecastFragment.
+        citiesListChangedListener.onSelectedCityChanged(((TextView) v).getText().toString());
+        currentCityIndex = position;
     }
 
+    /**
+     * Save the Fragment's state.
+     *
+     * @param outState
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
+
         super.onSaveInstanceState(outState);
-        if (mActivatedPosition != ListView.INVALID_POSITION) {
-            // Serialize and persist the activated item position.
-            outState.putInt(STATE_ACTIVATED_POSITION, mActivatedPosition);
-        }
+
+        // Save current selected city to Bundle.
+        outState.putInt(CURRENT_CITY_KEY, currentCityIndex);
     }
 
     /**

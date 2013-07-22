@@ -5,3 +5,4 @@
     android:layout_height="match_parent"
     tools:context=".CityDetailActivity"
     tools:ignore="MergeRootFrame" />
+<!-- From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/layout/activity_city_detail.xml -->

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: file:/Users/lukepotter/Eclipse-Workspace/WeatherDerplicationProject/WeatherDerplication/src/main/res/values-sw600dp/refs.xml -->
     <item name="activity_city_list" type="layout">@layout/activity_city_twopane</item>
 
 </resources>
