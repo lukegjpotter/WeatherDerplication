@@ -85,9 +85,21 @@ public class AddCityDialogFragment extends DialogFragment implements OnClickList
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Called when the Add City Button is clicked.
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
 
-        // Todo: Implement this.
+        if (view.getId() == R.id.add_city_button) {
+
+            DialogFinishedListener listener = (DialogFinishedListener) getActivity();
+            listener.onDialogFinished(addCityEditText.getText().toString(), addCityCheckBox.isChecked());
+
+            // Dismiss the Dialog Fragment.
+            dismiss();
+        }
     }
 }
