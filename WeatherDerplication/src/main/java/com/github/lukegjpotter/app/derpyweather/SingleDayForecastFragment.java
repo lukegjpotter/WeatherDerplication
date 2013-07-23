@@ -216,9 +216,7 @@ public class SingleDayForecastFragment extends ForecastFragment {
 
             } else if (image == null) {
 
-                Toast errorToast = Toast.makeText(context, context.getResources().getString(R.string.null_data_toast), Toast.LENGTH_LONG);
-                errorToast.setGravity(Gravity.CENTER, 0, 0);
-                errorToast.show();
+                makeTheToast(context, R.string.null_data_toast);
 
                 return; // Exit before updating the forecast.
             }
@@ -238,4 +236,56 @@ public class SingleDayForecastFragment extends ForecastFragment {
             forecastView.setVisibility(View.VISIBLE);
         }
     };
+
+    private class WeatherLocationLoadedListener implements LocationLoadedListener {
+
+        private String zipCode;
+
+        /**
+         * Create a new WeatherLocationLoadedListener.
+         *
+         * @param zc
+         */
+        public WeatherLocationLoadedListener(String zc) {
+
+            this.zipCode = zc;
+        }
+
+        /**
+         * Called when the location information is loaded.
+         *
+         * @param city
+         * @param state
+         * @param country
+         */
+        @Override
+        public void onLocationLoaded(String city, String state, String country) {
+
+            if (city == null) {
+
+                makeTheToast(context, R.string.null_data_toast);
+
+                return; // Exit before updating the forecast.
+            }
+
+            // Display the return information in a TextView.
+            locationTextView.setText(city + " " + state + ", " + zipCode + " " + country);
+
+            // Load the forecast in a background thread.
+            new ReadForecastTask(zipCode, weatherForecastListener, locationTextView.getContext()).execute();
+        }
+    }
+
+    /**
+     * A utility method to make a toast message, and display it onscreen.
+     *
+     * @param c
+     * @param resourceId
+     */
+    private void makeTheToast(Context c, int resourceId) {
+
+        Toast errorToast = Toast.makeText(c, c.getResources().getString(resourceId), Toast.LENGTH_LONG);
+        errorToast.setGravity(Gravity.CENTER, 0, 0);
+        errorToast.show();
+    }
 }
