@@ -75,11 +75,55 @@ public class SingleDayForecastFragment extends ForecastFragment {
     }
 
     /**
+     * Create the Fragment from the saved state Bundle.
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setZipcode(getArguments().getString(ZIPCODE_KEY));
+    }
+
+    /**
+     * Save the Fragment's state.
+     *
+     * @param outState
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        super.onSaveInstanceState(outState);
+
+        // Store the View's contents into the Bundle.
+        outState.putString(LOCATION_KEY,      locationTextView.getText().toString());
+        outState.putString(TEMPERATURE_KEY,   temperatureTextView.getText().toString());
+        outState.putString(FEELS_LIKE_KEY,    feelsLikeTextView.getText().toString());
+        outState.putString(HUMIDITY_KEY,      humidityTextView.getText().toString());
+        outState.putString(PRECIPITATION_KEY, chanceOfPrecipitationTextView.getText().toString());
+        outState.putParcelable(IMAGE_KEY,     conditionsBitmap);
+    }
+
+    /**
+     * Public access for ZIP code of this Fragment's forecast information.
      *
      * @return
      */
     @Override
     public String getZipcode() {
-        return null;
+
+        return zipCode;
+    }
+
+    /**
+     * Private access to set ZIP code of this Fragment's forecast information.
+     *
+     * @param zc
+     */
+    private void setZipcode(String zc) {
+
+        this.zipCode = zc;
     }
 }
