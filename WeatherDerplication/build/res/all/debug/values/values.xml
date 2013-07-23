@@ -56,6 +56,7 @@
     <string name="feels_like_label_string">Feels like: </string>
     <string name="five_day_forecast">Five Day Forecast</string>
     <string name="forecast_list">forecastList</string>
+    <string name="hello_world">Hello world!</string>
     <string name="high">high</string>
     <string name="high_temperature_label_string">High: </string>
     <string name="hourly_forecast">forecastHourlyList</string>
@@ -78,6 +79,7 @@
     <string name="temperature">temperature</string>
     <string name="temperature_label_string">Temperature: </string>
     <string name="temperature_unit">F</string>
+    <string name="title_activity_add_city_dialog_fragment">Add City</string>
     <string name="title_activity_weather_viewer">Weather Viewer</string>
     <string name="title_city_detail">City Detail</string>
     <string name="update_preferred_action">com.github.lukegjpotter.app.derpyweather.UPDATE_PREFERRED_CITY</string>
