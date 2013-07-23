@@ -167,5 +167,26 @@ public class SingleDayForecastFragment extends ForecastFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+
+        // If there is no save information.
+        if (savedInstanceState == null) {
+
+            // Hide the forecast and show the loading message.
+            forecastView.setVisibility(View.GONE);
+            loadingTextView.setVisibility(View.VISIBLE);
+
+            // Load the location information in a background thread.
+            new ReadLocationTask(zipCode, context, new WeatherLocationLoadedListener(zipCode)).execute();
+
+        } else {
+
+            // Display information in the saved state Bundle using the Fragment's Views.
+            conditionImageView.setImageBitmap((Bitmap) savedInstanceState.getParcelable(IMAGE_KEY));
+            locationTextView.setText(savedInstanceState.getString(LOCATION_KEY));
+            temperatureTextView.setText(savedInstanceState.getString(TEMPERATURE_KEY));
+            feelsLikeTextView.setText(savedInstanceState.getString(FEELS_LIKE_KEY));
+            humidityTextView.setText(savedInstanceState.getString(HUMIDITY_KEY));
+            chanceOfPrecipitationTextView.setText(savedInstanceState.getString(PRECIPITATION_KEY));
+        }
     }
 }
