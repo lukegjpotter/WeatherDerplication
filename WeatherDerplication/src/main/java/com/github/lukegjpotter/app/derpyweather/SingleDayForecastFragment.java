@@ -11,6 +11,7 @@ package com.github.lukegjpotter.app.derpyweather;
  */
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,13 +41,45 @@ public class SingleDayForecastFragment extends ForecastFragment {
     private Context   context;
     private Bitmap    conditionsBitmap;
 
-    @Override
-    public String getZipcode() {
-        return null;
+    /**
+     * Create a new ForecastFragment for the given ZIP code.
+     *
+     * @param zipcode
+     * @return
+     */
+    public static SingleDayForecastFragment newInstance(String zipcode) {
+
+        // Create a new ForecastFragment.
+        SingleDayForecastFragment newForecastFragment = new SingleDayForecastFragment();
+
+        Bundle argsBundle = new Bundle();
+
+        // Save the given String in the Bundle.
+        argsBundle.putString(ZIPCODE_KEY, zipcode);
+
+        // Set the Fragment's arguments.
+        newForecastFragment.setArguments(argsBundle);
+        return newForecastFragment;
     }
 
-    public static SingleDayForecastFragment newInstance(String zipCode) {
+    /**
+     * Create a new ForecastFragment for the given ZIP code.
+     *
+     * @param argsBundle
+     * @return
+     */
+    public static SingleDayForecastFragment newInstance(Bundle argsBundle) {
 
+        String zipCode = argsBundle.getString(ZIPCODE_KEY);
+        return newInstance(zipCode);
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getZipcode() {
         return null;
     }
 }
