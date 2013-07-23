@@ -10,13 +10,16 @@ package com.github.lukegjpotter.app.derpyweather;
  *     Displays forecast information for a single city for a single day.
  */
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SingleDayForecastFragment extends ForecastFragment {
 
@@ -189,4 +192,50 @@ public class SingleDayForecastFragment extends ForecastFragment {
             chanceOfPrecipitationTextView.setText(savedInstanceState.getString(PRECIPITATION_KEY));
         }
     }
+
+    /**
+     * Receives weather information from AsyncTask.
+     */
+    ForecastListener weatherForecastListener = new ForecastListener() {
+
+        /**
+         * Displays the forecast information.
+         *
+         * @param image
+         * @param temperature
+         * @param feelsLike
+         * @param humidity
+         * @param precipitation
+         */
+        public void onForecastLoaded(Bitmap image, String temperature, String feelsLike, String humidity, String precipitation) {
+
+            // If this Fragment was detected while the background process ran.
+            if (!SingleDayForecastFragment.this.isAdded()) {
+
+                return; // Leave the method.
+
+            } else if (image == null) {
+
+                Toast errorToast = Toast.makeText(context, context.getResources().getString(R.string.null_data_toast), Toast.LENGTH_LONG);
+                errorToast.setGravity(Gravity.CENTER, 0, 0);
+                errorToast.show();
+
+                return; // Exit before updating the forecast.
+            }
+
+            Resources resources = SingleDayForecastFragment.this.getResources();
+
+            // Display the loaded information.
+            conditionImageView.setImageBitmap(image);
+            conditionsBitmap = image;
+            temperatureTextView.setText(temperature + (char) 0x00B0 + resources.getString(R.string.temperature_unit));
+            feelsLikeTextView.setText(feelsLike + (char) 0x00B0 + resources.getString(R.string.temperature_unit));
+            humidityTextView.setText(humidity + (char) 0x0025);
+            chanceOfPrecipitationTextView.setText(precipitation + (char) 0x0025);
+
+            // Hide the loading mask and show teh forecast.
+            loadingTextView.setVisibility(View.GONE);
+            forecastView.setVisibility(View.VISIBLE);
+        }
+    };
 }
