@@ -282,7 +282,7 @@ public class SingleDayForecastFragment extends ForecastFragment {
      * @param c
      * @param resourceId
      */
-    private void makeTheToast(Context c, int resourceId) {
+    public static void makeTheToast(Context c, int resourceId) {
 
         Toast errorToast = Toast.makeText(c, c.getResources().getString(resourceId), Toast.LENGTH_LONG);
         errorToast.setGravity(Gravity.CENTER, 0, 0);

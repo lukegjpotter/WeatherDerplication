@@ -1,5 +1,16 @@
 package com.github.lukegjpotter.app.derpyweather;
 
+/**
+ * ReadLocationTask.java
+ *
+ * @author Luke GJ Potter - lukegjpotter
+ * @date 25/Jul/13
+ * @version 1.0
+ *
+ * Description:
+ *     This class reads location information in a background thread.
+ */
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
@@ -11,16 +22,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * ReadLocationTask.java
- *
- * @author Luke GJ Potter - lukegjpotter
- * @date 25/Jul/13
- * @version 1.0
- *
- * Description:
- *     This class reads location information in a background thread.
- */
 class ReadLocationTask extends AsyncTask<Object, Object, String> {
 
     private static final String TAG = "ReadLocationTask.java";
@@ -126,5 +127,25 @@ class ReadLocationTask extends AsyncTask<Object, Object, String> {
         }
 
         return null;
+    }
+
+    /**
+     * Executed back on the UI thread after the city name loads.
+     *
+     * @param name
+     */
+    @Override
+    protected void onPostExecute(String name) {
+
+        // If a city was found to match the given ZIP code.
+        if (city != null) {
+
+            // Pass the information back to the LocationLoadedListener.
+            weatherLocationLoadedListener.onLocationLoaded(city, state, country);
+
+        } else {
+
+            SingleDayForecastFragment.makeTheToast(context, R.string.invalid_zipcode_error);
+        }
     }
 }
