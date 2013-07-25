@@ -30,6 +30,8 @@ class ReadLocationTask extends AsyncTask<Object, Object, String> {
     // Listener for retrieved information.
     private LocationLoadedListener weatherLocationLoadedListener;
 
+
+
     @Override
     protected String doInBackground(Object... objects) {
         return null;
