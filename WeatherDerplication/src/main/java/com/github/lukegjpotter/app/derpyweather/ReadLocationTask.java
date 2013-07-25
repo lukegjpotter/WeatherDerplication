@@ -30,7 +30,20 @@ class ReadLocationTask extends AsyncTask<Object, Object, String> {
     // Listener for retrieved information.
     private LocationLoadedListener weatherLocationLoadedListener;
 
+    /**
+     * Public Constructor.
+     *
+     * @param zc
+     * @param c
+     * @param listener
+     */
+    public ReadLocationTask(String zc, Context c, LocationLoadedListener listener) {
 
+        zipCode = zc;
+        context = c;
+        resources = context.getResources();
+        weatherLocationLoadedListener = listener;
+    }
 
     @Override
     protected String doInBackground(Object... objects) {
